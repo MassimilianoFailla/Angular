@@ -1,3 +1,4 @@
+import { MyOrder } from './MyOrder';
 import { MyTableConfig } from './MyTableConfig';
 import { MyButtonConfig } from './MyButtonConfig';
 import { Component } from '@angular/core';
@@ -24,23 +25,25 @@ export class AppComponent {
     { key: 'id', label: 'Id' }, { key: 'nome', label: 'Nome' }, { key: 'cognome', label: 'Cognome' }];
 
   dati = [
-  {nome: 'Massimiliano', cognome: 'Failla', id: 1},
-  {nome: 'Francesca', cognome: 'Rumore', id: 2},
-  {nome: 'Tony', cognome: 'Rumore', id: 3},
-  {nome: 'Enrico', cognome: 'Galletti', id: 4},
-  {nome: 'Guglielmo', cognome: 'Risotto', id: 5},
-];
+    { nome: 'Massimiliano', cognome: 'Failla', id: 1 },
+    { nome: 'Francesca', cognome: 'Rumore', id: 2 },
+    { nome: 'Tony', cognome: 'Rumore', id: 3 },
+    { nome: 'Enrico', cognome: 'Galletti', id: 4 },
+    { nome: 'Guglielmo', cognome: 'Risotto', id: 5 },
+  ];
 
 
-// configurazione tabella
-tableConfig: MyTableConfig = {
-  headers: this.header,
-  data: this.dati,
-};
+  defaultcol: 'id';
 
+  orderConfig: MyOrder = {
+    defaultColumn: 'id',
+    orderType: 'asc',
+  };
 
+  // configurazione tabella
+  tableConfig: MyTableConfig = {
+    headers: this.header,
+    data: this.dati,
+    order: this.orderConfig,
+  };
 }
-
-
-
-

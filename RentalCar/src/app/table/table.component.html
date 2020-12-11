@@ -29,6 +29,21 @@
     <br><br>
     <h1>Angular Tabella Example SORTED</h1>
     <br><br>
+    <table mat-table class="mat-elevation-z8">
+      <thead>
+      <tr >
+        <th *ngFor="let column of tableConfig.headers;" ><mat-icon class = 'material-icons' (click) = "ordina(column.key);" > {{icon}}</mat-icon>{{column.label}}  </th>
+      </tr>
+      </thead>
+    
+      <tbody>
+      <tr *ngFor="let row of tableConfig.data;">
+        <td *ngFor="let column of tableConfig.headers;" >
+          {{row[column.key]}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
     
 
 

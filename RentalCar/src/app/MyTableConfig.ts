@@ -6,5 +6,6 @@ export class MyTableConfig{
 
     headers: MyHeaders[];
     data: MyData[];
+    order: MyOrder;
 
 }
