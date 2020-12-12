@@ -4,6 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MyData } from '../MyData';
 import { orderBy } from 'lodash';
 import * as _ from 'lodash';
+import { MySearch } from '../MySearch';
 
 @Component({
   selector: 'app-table',
@@ -17,11 +18,10 @@ export class TableComponent implements OnInit {
   @Input() orderConfig: string;
   @Input() icon: string;
   @Input() searchText= '';
-  // By default, it is sort by id.
+  @Input() searchConfig: MySearch;
+
   sortColumn = 'id';
   reverse: boolean;
-
-
 
   ngOnInit(): void {
     this.orderConfig = this.tableConfig.order.orderType;
@@ -36,14 +36,11 @@ export class TableComponent implements OnInit {
     }
   }
 
-  // Below code is for sorting column
   sort(column: string) {
     if (this.sortColumn === column) {
-      // set boolean true or false
       this.reverse = !this.reverse;
       this.icon = 'arrow_drop_down';
     }
-    // If we click on any column then it will assign that name to sortColumn.
     this.sortColumn = column;
     this.icon = 'arrow_drop_up';
   }
