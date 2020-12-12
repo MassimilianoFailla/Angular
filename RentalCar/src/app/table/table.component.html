@@ -34,6 +34,9 @@
     <br><br><br>
     <h1>Angular Tabella Example Sorting Pipe</h1>
     <br><br>
+    <!-- Here we assign value to searchText and this will be used in Filter. -->
+  <!-- We have implemented two-day binding to bind searchText -->
+  Search Text <input type="text" [(ngModel)]="searchText" name="searchText">
     <table class="table table-borderless table-dark">
       <thead>
         <tr>      
@@ -41,7 +44,7 @@
         </tr>
         </thead>
         <tbody>
-           <tr *ngFor="let e of tableConfig.data | orderBy:sortColumn:reverse"> <!-- Remove slice and then test for perfect output.-->
+           <tr *ngFor="let e of tableConfig.data | orderBy:sortColumn:reverse | filter: searchText "> <!-- Remove slice and then test for perfect output.-->
             <td>{{e.id}}</td>
             <td>{{e.nome | titlecase}}</td>
             <td>{{e.cognome | titlecase}}</td>

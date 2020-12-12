@@ -36,6 +36,7 @@ export class AppComponent {
     orderType: 'asc',
   };
 
+
   // configurazione tabella
   tableConfig: MyTableConfig = {
     headers: this.header,

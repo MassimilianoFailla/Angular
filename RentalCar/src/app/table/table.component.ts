@@ -16,10 +16,11 @@ export class TableComponent implements OnInit {
   @Input() data: MyData;
   @Input() orderConfig: string;
   @Input() icon: string;
-
+  @Input() searchText= '';
   // By default, it is sort by id.
   sortColumn = 'id';
   reverse: boolean;
+
 
 
   ngOnInit(): void {
