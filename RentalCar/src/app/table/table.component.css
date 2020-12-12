@@ -17,3 +17,8 @@ th {
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}

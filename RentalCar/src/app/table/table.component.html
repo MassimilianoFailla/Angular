@@ -37,25 +37,27 @@
   <br><br><br>
   <h1>Angular Tabella Example Sorting</h1>
   <br><br>
-  <div style="text-align:center;">
-    <td> Rierca: <input type="text" [(ngModel)]="searchConfig" name="searchText" style="text-align: center;"></td>
-    <table class="table table-borderless table-dark">
-      <thead>
-        <tr>
-          <th *ngFor="let column of tableConfig.headers">
-            <mat-icon class='material-icons' (click)="sort('id')"> {{icon}} </mat-icon> {{column.label}}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let e of tableConfig.data | orderBy:sortColumn:reverse | filter: searchConfig ">
-          <td>{{e.id}}</td>
-          <td>{{e.nome | titlecase}}</td>
-          <td>{{e.cognome | titlecase}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <!-- <label for="toppings"> Tipologia: </label>
+  <select name="Tipologia">
+    <option *ngFor="let column of tableConfig.search.columns"> {{column}} </option>
+  </select> -->
+  <td> Rierca: <input type="text" [(ngModel)]="searchConfig" name="searchText" style="text-align:center;"></td>
+  <table class="table table-borderless table-dark">
+    <thead>
+      <tr>
+        <th *ngFor="let column of tableConfig.headers">
+          <mat-icon class='material-icons' (click)="sortId('id')"> {{icon}} </mat-icon> {{column.label}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of tableConfig.data | orderBy:sortColumnId:reverse | filter: searchConfig ">
+        <td>{{e.id}}</td>
+        <td>{{e.nome | titlecase}}</td>
+        <td>{{e.cognome | titlecase}}</td>
+      </tr>
+    </tbody>
+  </table>
   <br><br><br>
 
   <!-- ----------------------------------------------------------------------------------------- -->

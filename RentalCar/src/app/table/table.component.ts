@@ -5,6 +5,7 @@ import { MyData } from '../MyData';
 import { orderBy } from 'lodash';
 import * as _ from 'lodash';
 import { MySearch } from '../MySearch';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-table',
@@ -16,14 +17,17 @@ export class TableComponent implements OnInit {
   @Input() tableConfig: MyTableConfig;
   @Input() data: MyData;
   @Input() orderConfig: string;
+  // @Input() orderConfig: MyOrder;   // implementare questo per l'ordinamento
   @Input() icon: string;
   // @Input() searchText= '';    // pipe di ricerca
   @Input() searchConfig: MySearch;      // ricerca custom
 
-  sortColumn = 'id';
+  sortColumnId = 'id';
+  //aggiungere sortColumnNome, sortColumnCognome
   reverse: boolean;
 
   ngOnInit(): void {
+    // configurazione dell'ordinamento
     this.orderConfig = this.tableConfig.order.orderType;
     if (this.tableConfig.order.orderType === 'asc') {
       this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn], ['asc']);
@@ -36,13 +40,37 @@ export class TableComponent implements OnInit {
     }
   }
 
-  sort(column: string) {
-    if (this.sortColumn === column) {
+  // sort ordinamento tramite id
+  sortId(column: string) {
+    if (this.sortColumnId === column) {
       this.reverse = !this.reverse;
       this.icon = 'arrow_drop_down';
     }
-    this.sortColumn = column;
+    this.sortColumnId = column;
     this.icon = 'arrow_drop_up';
   }
+
+  // sort ordinamento tramite nome
+  // sortByNome(column: string) {
+  //   if (this.sortColumn === column) {
+  //     this.reverse = !this.reverse;
+  //     this.icon = 'arrow_drop_down';
+  //   }
+  //   this.sortColumn = column;
+  //   this.icon = 'arrow_drop_up';
+  // }
+
+  // sort ordinamento tramite cognome
+  // sortByCognome(column: string) {
+  //   if (this.sortColumn === column) {
+  //     this.reverse = !this.reverse;
+  //     this.icon = 'arrow_drop_down';
+  //   }
+  //   this.sortColumn = column;
+  //   this.icon = 'arrow_drop_up';
+  // }
+
+
+
 }
 

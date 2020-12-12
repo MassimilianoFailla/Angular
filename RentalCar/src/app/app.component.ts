@@ -30,7 +30,7 @@ export class AppComponent {
     { nome: 'Massimiliano', cognome: 'Failla', id: 1 },
     { nome: 'Francesca', cognome: 'Rumore', id: 2 },
     { nome: 'Tony', cognome: 'Rumore', id: 3 },
-    { nome: 'Enrico', cognome: 'Galletti', id: 4 },
+    { nome: 'Enrico', cognome: 'Galletti', id: 4},
     { nome: 'Guglielmo', cognome: 'Risotto', id: 5 },
   ];
 
