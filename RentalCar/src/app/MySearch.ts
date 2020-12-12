@@ -6,5 +6,4 @@ constructor(columns: string[]){
     this.columns = columns;
 }
 
-
 }

@@ -1,3 +1,4 @@
+import { MyHeaders } from './MyHeaders';
 import { MySearch } from './MySearch';
 import { MyOrder } from './MyOrder';
 import { MyTableConfig } from './MyTableConfig';
@@ -42,6 +43,7 @@ export class AppComponent {
   columns: MySearch = {
     columns: ['id', 'Nome', 'Cognome'],
   };
+
 
   // configurazione tabella
   tableConfig: MyTableConfig = {

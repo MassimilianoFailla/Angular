@@ -17,8 +17,8 @@ export class TableComponent implements OnInit {
   @Input() data: MyData;
   @Input() orderConfig: string;
   @Input() icon: string;
-  @Input() searchText= '';
-  @Input() searchConfig: MySearch;
+  // @Input() searchText= '';    // pipe di ricerca
+  @Input() searchConfig: MySearch;      // ricerca custom
 
   sortColumn = 'id';
   reverse: boolean;

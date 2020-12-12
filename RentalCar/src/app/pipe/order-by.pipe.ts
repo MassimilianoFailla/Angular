@@ -8,8 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class OrderByPipe implements PipeTransform {
-
-
+  
   transform(dati: Array<MyData>, column?: string, reverse?: boolean): Array<MyData> {
 
     if (column === undefined || column === 'id') {
