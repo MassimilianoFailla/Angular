@@ -12,7 +12,10 @@
   <body>
     <h1>Angular Tabella Example</h1>
     <br><br>
-    <table class="table table-borderless table-dark">
+
+        <!-- ----------------------------------------------------------------------------------------- -->
+
+    <!-- <table class="table table-borderless table-dark">
         <thead>
         <tr>
           <th *ngFor="let column of tableConfig.headers" scope="col"> {{column.label}} </th>
@@ -23,16 +26,40 @@
           <th *ngFor="let column of tableConfig.headers" scope="col"> {{row[column.key]}} </th>
         </tr>
       </tbody>
-    </table>
+    </table> -->
 
-  
-    <br><br>
-    <h1>Angular Tabella Example SORTED</h1>
+    <!-- ----------------------------------------------------------------------------------------- -->
+
+
+    <br><br><br>
+    <h1>Angular Tabella Example Sorting Pipe</h1>
     <br><br>
     <table class="table table-borderless table-dark">
       <thead>
+        <tr>      
+          <th *ngFor="let column of tableConfig.headers"><mat-icon class = 'material-icons' (click)="sort('id')"> {{icon}} </mat-icon> {{column.label}} </th>  
+        </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let e of tableConfig.data | orderBy:sortColumn:reverse"> <!-- Remove slice and then test for perfect output.-->
+            <td>{{e.id}}</td>
+            <td>{{e.nome | titlecase}}</td>
+            <td>{{e.cognome | titlecase}}</td>
+          </tr>
+        </tbody>
+    </table>
+    <br><br><br>
+
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+
+    <!-- <br><br>
+    <h1>Angular Tabella Example SORTED</h1>
+    <br><br>
+    <table class="table table-striped">
+      <thead class="thead-dark">
       <tr >
-        <th *ngFor="let column of tableConfig.headers" ><mat-icon class = 'material-icons' (click)="ordina(column.key)" > {{icon}} </mat-icon> {{column.label}} </th>
+        <th *ngFor="let column of tableConfig.headers" > <mat-icon class = 'material-icons' (click)="ordina(column.key)" > {{icon}} </mat-icon> {{column.label}} </th>
       </tr>
       </thead>
     
@@ -44,6 +71,7 @@
       </tr>
       </tbody>
     </table>
+    <br><br><br> -->
     
     <!-- Optional JavaScript; choose one of the two! -->
 

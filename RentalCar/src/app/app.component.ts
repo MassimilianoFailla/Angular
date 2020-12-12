@@ -19,7 +19,6 @@ export class AppComponent {
     customCssClass: 'myStyle',
   };
 
-
   // settaggio headers
   header = [
     { key: 'id', label: 'Id' }, { key: 'nome', label: 'Nome' }, { key: 'cognome', label: 'Cognome' }];
@@ -31,9 +30,6 @@ export class AppComponent {
     { nome: 'Enrico', cognome: 'Galletti', id: 4 },
     { nome: 'Guglielmo', cognome: 'Risotto', id: 5 },
   ];
-
-
-  defaultcol: 'id';
 
   orderConfig: MyOrder = {
     defaultColumn: 'id',

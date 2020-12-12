@@ -12,11 +12,14 @@ import * as _ from 'lodash';
 })
 export class TableComponent implements OnInit {
 
-
   @Input() tableConfig: MyTableConfig;
   @Input() data: MyData;
   @Input() orderConfig: string;
   @Input() icon: string;
+
+  // By default, it is sort by id.
+  sortColumn = 'id';
+  reverse: boolean;
 
 
   ngOnInit(): void {
@@ -24,29 +27,24 @@ export class TableComponent implements OnInit {
     if (this.tableConfig.order.orderType === 'asc') {
       this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn], ['asc']);
       this.orderConfig = 'asc';
-
       this.icon = 'arrow_drop_down';
-
     } else {
       this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn], ['desc']);
       this.orderConfig = 'desc';
       this.icon = 'arrow_drop_up';
     }
-
   }
-  ordina(key: string) {
 
-    if(this.orderConfig === 'desc'){
-      this.data = _.orderBy(this.data, [key], ['asc']);
-      this.orderConfig = 'asc';
+  // Below code is for sorting column
+  sort(column: string) {
+    if (this.sortColumn === column) {
+      // set boolean true or false
+      this.reverse = !this.reverse;
       this.icon = 'arrow_drop_down';
-
-    }else{
-      this.data = _.orderBy(this.data, [key], ['desc']);
-      this.icon = 'arrow_drop_up';
-      this.orderConfig = 'desc';
-
     }
-
+    // If we click on any column then it will assign that name to sortColumn.
+    this.sortColumn = column;
+    this.icon = 'arrow_drop_up';
   }
 }
+
