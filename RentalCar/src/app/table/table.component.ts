@@ -16,61 +16,55 @@ export class TableComponent implements OnInit {
 
   @Input() tableConfig: MyTableConfig;
   @Input() data: MyData;
-  @Input() orderConfig: string;
-  // @Input() orderConfig: MyOrder;   // implementare questo per l'ordinamento
+  @Input() orderConfig: string;   // implementazione custom per l'ordinamento
+  // @Input() orderConfig: MyOrder;   // implementazione custom da padre per l'ordinamento
   @Input() icon: string;
   // @Input() searchText= '';    // pipe di ricerca
   @Input() searchConfig: MySearch;      // ricerca custom
 
   sortColumnId = 'id';
-  //aggiungere sortColumnNome, sortColumnCognome
+  sortColumnNome = 'nome';
+  sortColumnCognome = 'cognome';
   reverse: boolean;
 
   ngOnInit(): void {
     // configurazione dell'ordinamento
     this.orderConfig = this.tableConfig.order.orderType;
     if (this.tableConfig.order.orderType === 'asc') {
-      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn], ['asc']);
+      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumnId], ['asc']);
+      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumnNome], ['asc']);
+      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumnCognome], ['asc']);
       this.orderConfig = 'asc';
       this.icon = 'arrow_drop_down';
     } else {
-      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn], ['desc']);
+      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumnId], ['desc']);
+      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumnNome], ['desc']);
+      this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumnCognome], ['desc']);
       this.orderConfig = 'desc';
       this.icon = 'arrow_drop_up';
     }
   }
 
-  // sort ordinamento tramite id
-  sortId(column: string) {
-    if (this.sortColumnId === column) {
-      this.reverse = !this.reverse;
+  // ordinamento per le varie colonne
+  sort(){
+    // ?? modificare questo sort in funzione delle colonne di MySearch ?? Domanda
+    if(this.sortColumnId === this.tableConfig.order.defaultColumnId){
+      this.reverse =! this.reverse;
       this.icon = 'arrow_drop_down';
     }
-    this.sortColumnId = column;
-    this.icon = 'arrow_drop_up';
+    else if(this.sortColumnNome === this.tableConfig.order.defaultColumnNome){
+      this.reverse =! this.reverse;
+      this.icon = 'arrow_drop_down';
+    }
+    else if(this.sortColumnCognome === this.tableConfig.order.defaultColumnCognome){
+      this.reverse =! this.reverse;
+      this.icon = 'arrow_drop_down';
+    }
+    this.sortColumnId = this.tableConfig.order.defaultColumnId;
+    this.sortColumnNome = this.tableConfig.order.defaultColumnNome;
+    this.sortColumnCognome = this.tableConfig.order.defaultColumnCognome;
+    this.icon = 'arrow_drop_down';
   }
-
-  // sort ordinamento tramite nome
-  // sortByNome(column: string) {
-  //   if (this.sortColumn === column) {
-  //     this.reverse = !this.reverse;
-  //     this.icon = 'arrow_drop_down';
-  //   }
-  //   this.sortColumn = column;
-  //   this.icon = 'arrow_drop_up';
-  // }
-
-  // sort ordinamento tramite cognome
-  // sortByCognome(column: string) {
-  //   if (this.sortColumn === column) {
-  //     this.reverse = !this.reverse;
-  //     this.icon = 'arrow_drop_down';
-  //   }
-  //   this.sortColumn = column;
-  //   this.icon = 'arrow_drop_up';
-  // }
-
-
 
 }
 

@@ -46,12 +46,13 @@
     <thead>
       <tr>
         <th *ngFor="let column of tableConfig.headers">
-          <mat-icon class='material-icons' (click)="sortId('id')"> {{icon}} </mat-icon> {{column.label}}
+          <mat-icon class='material-icons' (click)="sort()"> {{icon}} </mat-icon> {{column.label}}
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let e of tableConfig.data | orderBy:sortColumnId:reverse | filter: searchConfig ">
+      <!-- In base al nome che assegno ad orderBy fa l'ordinamento asc/desc della colonna -->
+      <tr *ngFor="let e of tableConfig.data | orderBy:sortColumnNome:reverse | filter: searchConfig">
         <td>{{e.id}}</td>
         <td>{{e.nome | titlecase}}</td>
         <td>{{e.cognome | titlecase}}</td>

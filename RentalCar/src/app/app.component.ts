@@ -36,12 +36,14 @@ export class AppComponent {
 
   // settaggio orderConfig
   orderConfig: MyOrder = {
-    defaultColumn: 'id',
+    defaultColumnId: 'id',
+    defaultColumnNome: 'nome',
+    defaultColumnCognome: 'cognome',
     orderType: 'asc',
   };
   
   columns: MySearch = {
-    columns: ['id', 'Nome', 'Cognome'],
+    columns: ['id', 'nome', 'cognome'],
   };
 
 
