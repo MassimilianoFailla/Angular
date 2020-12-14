@@ -1,3 +1,5 @@
+import { MyTableActionEnum } from './MyTableActionEnum';
+import { MyPagination } from './MyPagination';
 import { MyHeaders } from './MyHeaders';
 import { MySearch } from './MySearch';
 import { MyOrder } from './MyOrder';
@@ -30,7 +32,7 @@ export class AppComponent {
     { nome: 'Massimiliano', cognome: 'Failla', id: 1 },
     { nome: 'Francesca', cognome: 'Rumore', id: 2 },
     { nome: 'Tony', cognome: 'Rumore', id: 3 },
-    { nome: 'Enrico', cognome: 'Galletti', id: 4},
+    { nome: 'Enrico', cognome: 'Galletti', id: 4 },
     { nome: 'Guglielmo', cognome: 'Risotto', id: 5 },
   ];
 
@@ -39,11 +41,19 @@ export class AppComponent {
     defaultColumn: 'id',
     orderType: 'asc',
   };
-  
+
   columns: MySearch = {
     columns: ['id', 'nome', 'cognome'],
   };
 
+  // configPages
+  pagesConfig: MyPagination = {
+    itemPerPage: 3,
+    itemPerPageOptions: [2],
+  };
+
+  // config action
+ 
 
   // configurazione tabella
   tableConfig: MyTableConfig = {
@@ -51,7 +61,7 @@ export class AppComponent {
     data: this.datiConfig,
     order: this.orderConfig,
     search: this.columns,
+    pagination: this.pagesConfig,
   };
 
-  
 }

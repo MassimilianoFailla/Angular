@@ -1,3 +1,4 @@
+import { MyPagination } from './../MyPagination';
 import { MyOrder } from './../MyOrder';
 import { MyTableConfig } from './../MyTableConfig';
 import { Component, OnInit, Input } from '@angular/core';
@@ -21,6 +22,9 @@ export class TableComponent implements OnInit {
   @Input() icon: string;
   // @Input() searchText= '';    // pipe di ricerca
   @Input() searchConfig: MySearch;      // ricerca custom
+  @Input() paginationConfig: MyPagination;  // per la paginazione della tabella
+
+
 
   // per l'ordinamento
   reverse: boolean;
@@ -29,8 +33,6 @@ export class TableComponent implements OnInit {
   // per l'impaginazione
   config: any;
   collection = {count: 30, data: [] };
-
-
 
   ngOnInit(): void {
     // configurazione dell'ordinamento
@@ -60,6 +62,6 @@ export class TableComponent implements OnInit {
   }
 
   // impaginazionpe
-p: number = 1;
+  p: number = 1;
 
 }

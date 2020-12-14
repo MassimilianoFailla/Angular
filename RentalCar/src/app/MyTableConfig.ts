@@ -1,3 +1,5 @@
+import { MyTableActionEnum } from './MyTableActionEnum';
+import { MyPagination } from './MyPagination';
 import { MyOrder } from './MyOrder';
 import { MyData } from './MyData';
 import { MyHeaders } from './MyHeaders';
@@ -10,4 +12,5 @@ export class MyTableConfig{
     data: MyData[];
     order: MyOrder;
     search: MySearch;
+    pagination: MyPagination;
 }
