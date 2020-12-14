@@ -24,5 +24,4 @@ export class OrderByPipe implements PipeTransform {
     }
     return dati;
   }
-
 }

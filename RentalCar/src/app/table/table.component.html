@@ -33,7 +33,6 @@
 
   <!-- ----------------------------------------------------------------------------------------- -->
 
-
   <br><br><br>
   <h1>Angular Tabella Example Sorting</h1>
   <br><br>
@@ -41,28 +40,26 @@
   <select name="Tipologia">
     <option *ngFor="let column of tableConfig.search.columns"> {{column}} </option>
   </select> -->
-  <td> Rierca: <input type="text" [(ngModel)]="searchConfig" name="searchText" style="text-align:center;"></td>
+  <td> Rierca: <input type="text" [(ngModel)]="searchConfig" name="searchText" style="text-align:center"></td>
   <table class="table table-borderless table-dark">
     <thead>
       <tr>
         <th *ngFor="let column of tableConfig.headers">
-          <mat-icon class='material-icons' (click)="sort()"> {{icon}} </mat-icon> {{column.label}}
+          <mat-icon class='material-icons' (click)="sort(column.key)"> {{icon}} </mat-icon>{{column.label}}
         </th>
       </tr>
     </thead>
     <tbody>
-      <!-- In base al nome che assegno ad orderBy fa l'ordinamento asc/desc della colonna -->
-      <tr *ngFor="let e of tableConfig.data | orderBy:sortColumnNome:reverse | filter: searchConfig">
-        <td>{{e.id}}</td>
-        <td>{{e.nome | titlecase}}</td>
-        <td>{{e.cognome | titlecase}}</td>
+      <tr *ngFor="let row of data | filter: searchConfig">
+        <td *ngFor="let column of tableConfig.headers">
+          {{row[column.key]}}
+        </td>
       </tr>
     </tbody>
   </table>
   <br><br><br>
 
   <!-- ----------------------------------------------------------------------------------------- -->
-
 
   <!-- Optional JavaScript; choose one of the two! -->
 

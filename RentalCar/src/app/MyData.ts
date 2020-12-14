@@ -1,3 +1,4 @@
+import { MySearch } from './MySearch';
 export class MyData{
 
     nome: string;

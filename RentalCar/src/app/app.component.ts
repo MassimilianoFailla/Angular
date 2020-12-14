@@ -36,9 +36,7 @@ export class AppComponent {
 
   // settaggio orderConfig
   orderConfig: MyOrder = {
-    defaultColumnId: 'id',
-    defaultColumnNome: 'nome',
-    defaultColumnCognome: 'cognome',
+    defaultColumn: 'id',
     orderType: 'asc',
   };
   
