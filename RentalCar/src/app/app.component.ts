@@ -51,7 +51,6 @@ export class AppComponent {
     data: this.datiConfig,
     order: this.orderConfig,
     search: this.columns,
-
   };
 
   

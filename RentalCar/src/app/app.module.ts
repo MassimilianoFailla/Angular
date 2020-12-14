@@ -13,7 +13,7 @@ import { OrderByPipe } from './pipe/order-by.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatSelectModule,
     Ng2SearchPipeModule,
     FormsModule,
+    NgxPaginationModule,
   ],
   exports:[
     

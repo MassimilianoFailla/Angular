@@ -22,9 +22,15 @@ export class TableComponent implements OnInit {
   // @Input() searchText= '';    // pipe di ricerca
   @Input() searchConfig: MySearch;      // ricerca custom
 
-
+  // per l'ordinamento
   reverse: boolean;
   orderType: string;
+
+  // per l'impaginazione
+  config: any;
+  collection = {count: 30, data: [] };
+
+
 
   ngOnInit(): void {
     // configurazione dell'ordinamento
@@ -52,4 +58,8 @@ export class TableComponent implements OnInit {
       this.orderType = 'desc';
     }
   }
+
+  // impaginazionpe
+p: number = 1;
+
 }
