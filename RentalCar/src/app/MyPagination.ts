@@ -1,7 +1,6 @@
+export class MyPagination{
 
-export class MyPagination {
-
-    itemPerPage: number;
-    itemPerPageOptions: number[];
+itemPerPage: number;
+itemPerPageOptions: number[];
 
 }

@@ -5,42 +5,24 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 
 <body>
 
-  <!-- ----------------------------------- Esempio Tabella ------------------------------------------------------ -->
+  <!-- ------------------------------------ TABELLA DI ESEMPIO ----------------------------------------------------- -->
 
-  <!-- <h1>Angular Tabella Example</h1>
-  <br><br>
-   <table class="table table-borderless table-dark">
-        <thead>
-        <tr>
-          <th *ngFor="let column of tableConfig.headers" scope="col"> {{column.label}} </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let row of tableConfig.data">
-          <th *ngFor="let column of tableConfig.headers" scope="col"> {{row[column.key]}} </th>
-        </tr>
-      </tbody>
-    </table> -->
-
-  <!-- ----------------------------------------------------------------------------------------- -->
-
-  <br><br><br>
+  <!-- <br><br><br>
   <h1>Angular Tabella Example Sorting</h1>
   <br><br>
-  <!-- <label for="toppings"> Tipologia: </label>
+   <label for="toppings"> Tipologia: </label>
   <select name="Tipologia">
     <option *ngFor="let column of tableConfig.search.columns"> {{column}} </option>
-  </select> -->
+  </select>
   <div>
     <select class="custom-select">
       <option selected *ngFor="let column of tableConfig.headers"> {{column.key}} </option>
     </select>
-    Ricerca: <input type="text" [(ngModel)]="searchConfig" name="searchText" style="text-align:center">
+    Ricerca: <input type="text" [(ngModel)]="searchValue" name="searchText" style="text-align:center">
   </div>
   <table class="table table-striped- table-dark table-sm">
     <thead class="thead-dark">
@@ -51,7 +33,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data | filter: searchConfig | paginate: {itemsPerPage: 3, currentPage: p}; let i = index">
+      <tr *ngFor="let row of data | filter: searchValue | paginate: {itemsPerPage: 3, currentPage: p}; let i = index">
         <td *ngFor="let column of tableConfig.headers">
           {{row[column.key]}}
         </td>
@@ -61,10 +43,70 @@
   <div>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+  <br><br><br> -->
+
+  <!-- ------------------------------------ TABELLA DI ESEMPIO ----------------------------------------------------- -->
+
   <br><br><br>
+  <h1>Angular Tabella Example Sorting</h1>
+  <br><br>
 
-  <!-- ----------------------------------------------------------------------------------------- -->
+  <!-- filtro -->
+  <div> Filtra per:
+    <select class="custom-select" [(ngModel)]="selectedFilter">
+      <option *ngFor="let filter of tableConfig.search.columns">
+        {{filter}}
+      </option>
+    </select>
+    <input class="form-control" class="text-align" [(ngModel)]="searchValue" type="text" placeholder=" example">
+  </div>
+  <!-- filtro -->
+  <table class="table table-striped- table-dark table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor="let column of tableConfig.headers">
+          <mat-icon (click)="sort(column.key)"> {{icon}} </mat-icon>{{column.label}}
+        </th>
+        <td>
+          <!-- <input type="hidden" name="id" value="" > -->
+          <button type="button" class="btn btn-secondary btn-xs">New Data</button>
+          <!-- <input type="submit" value="New"> -->
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data | filter: searchValue | paginPipe: perPage: selectedPage">
+        <td *ngFor="let column of tableConfig.headers">
+          {{row[column.key]}}
+        </td>
+        <td>
+          <!-- <input type="hidden" name="id" value="${utente.id}"> -->
+          <button type="button" class="btn btn-secondary btn-xs">Edit</button>
+          <!-- <input type="submit" value="Edit"> -->
+        </td>
+        <td>
+          <!-- <input type="hidden" name="id" value="${utente.id}"> -->
+          <button type="button" class="btn btn-secondary btn-xs">Delete</button>
+          <!-- <input type="submit" value="Delete"> -->
+        </td>
+      </tr>
+    </tbody>
 
+  </table>
+
+  <!-- paginazione -->
+  <div>
+    Quantità Elementi Per Pagina: <select [(ngModel)]="perPage">
+      <option *ngFor="let itemPerPage of tableConfig.pagination.itemPerPageOptions">
+        {{itemPerPage}}
+      </option>
+    </select>
+    <br><br>
+    Pagina: <input [(ngModel)]="selectedPage" type="number" value="{{selectedPage}}">
+  </div>
+  <!-- paginazione -->
+
+  <!-- ----------------------------------------------------------------- -->
 </body>
 
 </html>

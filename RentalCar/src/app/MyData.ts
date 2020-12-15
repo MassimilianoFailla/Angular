@@ -1,5 +1,6 @@
 import { MySearch } from './MySearch';
 export class MyData{
+    [x: string]: any;
 
     nome: string;
     cognome: string;

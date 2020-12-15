@@ -6,7 +6,6 @@ import { MyOrder } from './MyOrder';
 import { MyTableConfig } from './MyTableConfig';
 import { MyButtonConfig } from './MyButtonConfig';
 import { Component } from '@angular/core';
-import { OrderByPipe } from './pipe/order-by.pipe';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +24,9 @@ export class AppComponent {
 
   // settaggio headers
   header = [
-    { key: 'id', label: 'Id' }, { key: 'nome', label: 'Nome' }, { key: 'cognome', label: 'Cognome' }];
+    { key: 'id', label: 'Id' },
+    { key: 'nome', label: 'Nome' },
+    { key: 'cognome', label: 'Cognome' }];
 
   // settaggio datiConfig
   datiConfig = [
@@ -34,6 +35,11 @@ export class AppComponent {
     { nome: 'Tony', cognome: 'Rumore', id: 3 },
     { nome: 'Enrico', cognome: 'Galletti', id: 4 },
     { nome: 'Guglielmo', cognome: 'Risotto', id: 5 },
+    { nome: 'Salvo', cognome: 'Montalbano', id: 6 },
+    { nome: 'Mimì', cognome: 'Augello', id: 7 },
+    { nome: 'Angelo', cognome: 'Catarella', id: 8 },
+    { nome: 'Frodo', cognome: 'Baggins', id: 9 },
+    { nome: 'Tom', cognome: 'Bombadil', id: 10 },
   ];
 
   // settaggio orderConfig
@@ -48,8 +54,8 @@ export class AppComponent {
 
   // configPages
   pagesConfig: MyPagination = {
-    itemPerPage: 3,
-    itemPerPageOptions: [2],
+    itemPerPage: 2,
+    itemPerPageOptions: [2, 3, 4, 5],
   };
 
   // config action
@@ -63,5 +69,6 @@ export class AppComponent {
     search: this.columns,
     pagination: this.pagesConfig,
   };
+
 
 }

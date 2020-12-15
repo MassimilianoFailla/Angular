@@ -9,18 +9,20 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './button/button.component';
 import { TableComponent } from './table/table.component';
-import { OrderByPipe } from './pipe/order-by.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PaginationPipe } from './pipe/pagination.pipe';
+import { SearchFilterPipe } from './pipe/search-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     TableComponent,
-    OrderByPipe,
+    PaginationPipe,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,

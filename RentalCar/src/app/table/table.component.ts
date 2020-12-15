@@ -7,6 +7,8 @@ import { orderBy } from 'lodash';
 import * as _ from 'lodash';
 import { MySearch } from '../MySearch';
 import { FormControl } from '@angular/forms';
+import { NumberSymbol } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -24,17 +26,27 @@ export class TableComponent implements OnInit {
   @Input() searchConfig: MySearch;      // ricerca custom
   @Input() paginationConfig: MyPagination;  // per la paginazione della tabella
 
-
-
   // per l'ordinamento
   reverse: boolean;
   orderType: string;
 
-  // per l'impaginazione
-  config: any;
-  collection = {count: 30, data: [] };
+
+  selectedFilter:string;
+  searched: string;
+
+  searchValue: string;
+
+  paginPipe: number;
+
+  PageNum: number;
+  isSelected: boolean;
+
+  selectedPage: number ;
+  perPage: number;
 
   ngOnInit(): void {
+
+    
     // configurazione dell'ordinamento
     this.orderConfig = this.tableConfig.order.orderType;
     if (this.tableConfig.order.orderType === 'asc') {
@@ -46,10 +58,15 @@ export class TableComponent implements OnInit {
       this.orderConfig = 'desc';
       this.icon = 'arrow_drop_up';
     }
+
+
+    // paginazione
+    this.perPage = this.tableConfig.pagination.itemPerPage;
+    this.selectedPage = 1;
   }
 
   // ordinamento per le varie colonne
-  sort(key: string) {
+   sort(key: string) {
     if (this.orderType === 'desc') {
       this.data = _.orderBy(this.data, [key], ['asc']);
       this.orderType = 'asc';
@@ -61,7 +78,23 @@ export class TableComponent implements OnInit {
     }
   }
 
-  // impaginazionpe
-  p: number = 1;
+  filtro(){
+    this.data = this.data.filter((p: any) => p[this.selectedFilter].toString().includes(this.searched));
+  }
+
+  // pagination(){
+  //   this.config.data = this.tableConfig.data;
+  //   for(var i = 0; i < this.collection.count; i++){
+  //     this.config.data.push({id: i+1, value: 'item number' +(i+1)});
+  //   }
+
+  //   this.config = this.tableConfig.pagination;
+
+  //   this.config = {
+  //     itemPerPage: 5,
+  //     currentPage: 1,
+  //     totalItems: this.collection.count,
+  //     };
+
 
 }
