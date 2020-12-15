@@ -1,4 +1,5 @@
 export class VeicoloConfig {
+    
     id: number;
     casaCostruttrice: string;
     modello: string;

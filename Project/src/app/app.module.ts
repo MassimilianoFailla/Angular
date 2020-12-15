@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TabellaComponent } from './tabella/tabella.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TabellaComponent
+    TabellaComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule

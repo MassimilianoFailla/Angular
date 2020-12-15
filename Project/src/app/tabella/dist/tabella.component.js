@@ -15,7 +15,10 @@ var TabellaComponent = /** @class */ (function () {
     };
     __decorate([
         core_1.Input()
-    ], TabellaComponent.prototype, "confTab");
+    ], TabellaComponent.prototype, "tabUsr");
+    __decorate([
+        core_1.Input()
+    ], TabellaComponent.prototype, "tabVeh");
     TabellaComponent = __decorate([
         core_1.Component({
             selector: 'app-tabella',

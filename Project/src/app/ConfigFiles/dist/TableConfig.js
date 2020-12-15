@@ -1,9 +1,9 @@
 "use strict";
 exports.__esModule = true;
-exports.TableConfig = void 0;
-var TableConfig = /** @class */ (function () {
-    function TableConfig() {
+exports.TableUserConfig = void 0;
+var TableUserConfig = /** @class */ (function () {
+    function TableUserConfig() {
     }
-    return TableConfig;
+    return TableUserConfig;
 }());
-exports.TableConfig = TableConfig;
+exports.TableUserConfig = TableUserConfig;

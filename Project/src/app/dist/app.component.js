@@ -11,8 +11,8 @@ var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'Project RentalCar in Angular';
-        // creo la key e la label
-        this.header = [
+        // creo la key e la label per 'utente
+        this.headerUser = [
             { key: 'id', label: 'Id' },
             { key: 'nome', label: 'Nome' },
             { key: 'cognome', label: 'Cognome' },
@@ -23,14 +23,32 @@ var AppComponent = /** @class */ (function () {
             { key: 'password', label: 'Password' },
             { key: 'role', label: 'role' },
         ];
+        // creo la key e la label per i veicoli
+        this.headerVehi = [
+            { key: 'id', label: 'Id' },
+            { key: 'casaCostruttrice', label: 'CasaCostruttrice' },
+            { key: 'modello', label: 'Modello' },
+            { key: 'annoImmatricolazione', label: 'AnnoImmatricolazione' },
+            { key: 'targa', label: 'Targa' },
+        ];
         // creo la lista degli utenti da visualizzare
         this.datiUtenti = [
             { id: 1, nome: 'Massimiliano', cognome: 'Failla', dataNascita: '06/09/1992', codiceFiscale: 'FLLMLNP06ZQ192P',
                 email: 'madalinvalentin.failla@gmail.com', username: 'max', password: 'ciao', role: 'Super' },
         ];
-        this.confTab = {
+        // creo la lista degli utenti da visualizzare
+        this.datiVeicoli = [
+            { id: 1, casaCostruttrice: 'Ford', modello: 'CMax', annoImmatricolazione: '06/09/1989', targa: 'FRDCMX' },
+        ];
+        // gestione tabella utente
+        this.tabUsr = {
             listaUtenti: this.datiUtenti,
-            headers: this.header
+            headers: this.headerUser
+        };
+        // gestione tabella veicoli
+        this.tabVeh = {
+            listaVeicoli: this.datiVeicoli,
+            headers: this.headerVehi
         };
     }
     AppComponent = __decorate([
