@@ -50,13 +50,17 @@ var AppComponent = /** @class */ (function () {
             itemPerPageOptions: [2, 3, 4, 5]
         };
         // config action
+        this.actionConfig = [
+            NEW_ROW, 'Massimiliano', DELETE, 'Failla', EDIT, 1
+        ];
         // configurazione tabella
         this.tableConfig = {
             headers: this.header,
             data: this.datiConfig,
             order: this.orderConfig,
             search: this.columns,
-            pagination: this.pagesConfig
+            pagination: this.pagesConfig,
+            actions: this.actionConfig
         };
     }
     AppComponent = __decorate([

@@ -3,12 +3,8 @@ import { MyOrder } from './../MyOrder';
 import { MyTableConfig } from './../MyTableConfig';
 import { Component, OnInit, Input } from '@angular/core';
 import { MyData } from '../MyData';
-import { orderBy } from 'lodash';
 import * as _ from 'lodash';
 import { MySearch } from '../MySearch';
-import { FormControl } from '@angular/forms';
-import { NumberSymbol } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -30,23 +26,18 @@ export class TableComponent implements OnInit {
   reverse: boolean;
   orderType: string;
 
-
-  selectedFilter:string;
-  searched: string;
-
-  searchValue: string;
-
-  paginPipe: number;
-
-  PageNum: number;
-  isSelected: boolean;
-
+  // per la paginazione
   selectedPage: number ;
   perPage: number;
+  paginPipe: number;
+
+  // per il filraggio
+  selectedFilter:string;
+  searched: string;
+  searchValue: string;
 
   ngOnInit(): void {
 
-    
     // configurazione dell'ordinamento
     this.orderConfig = this.tableConfig.order.orderType;
     if (this.tableConfig.order.orderType === 'asc') {
@@ -58,7 +49,6 @@ export class TableComponent implements OnInit {
       this.orderConfig = 'desc';
       this.icon = 'arrow_drop_up';
     }
-
 
     // paginazione
     this.perPage = this.tableConfig.pagination.itemPerPage;
@@ -78,23 +68,10 @@ export class TableComponent implements OnInit {
     }
   }
 
-  filtro(){
-    this.data = this.data.filter((p: any) => p[this.selectedFilter].toString().includes(this.searched));
-  }
+  // filtro(){
+  //   this.data = this.data.filter((p: any) => p[this.selectedFilter].toString().includes(this.searched));
+  // }
 
-  // pagination(){
-  //   this.config.data = this.tableConfig.data;
-  //   for(var i = 0; i < this.collection.count; i++){
-  //     this.config.data.push({id: i+1, value: 'item number' +(i+1)});
-  //   }
-
-  //   this.config = this.tableConfig.pagination;
-
-  //   this.config = {
-  //     itemPerPage: 5,
-  //     currentPage: 1,
-  //     totalItems: this.collection.count,
-  //     };
 
 
 }

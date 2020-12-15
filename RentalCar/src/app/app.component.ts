@@ -1,6 +1,5 @@
 import { MyTableActionEnum } from './MyTableActionEnum';
 import { MyPagination } from './MyPagination';
-import { MyHeaders } from './MyHeaders';
 import { MySearch } from './MySearch';
 import { MyOrder } from './MyOrder';
 import { MyTableConfig } from './MyTableConfig';
@@ -59,7 +58,9 @@ export class AppComponent {
   };
 
   // config action
- 
+actionConfig: MyTableActionEnum = [
+  NEW_ROW: 'Massimiliano', DELETE: 'Failla', EDIT: 1
+];
 
   // configurazione tabella
   tableConfig: MyTableConfig = {
@@ -68,6 +69,7 @@ export class AppComponent {
     order: this.orderConfig,
     search: this.columns,
     pagination: this.pagesConfig,
+    actions: this.actionConfig,
   };
 
 

@@ -12,5 +12,6 @@ export class MyTableConfig{
     order: MyOrder;
     search: MySearch;
     pagination: MyPagination;
+    actions: MyTableActionEnum[];
     
 }

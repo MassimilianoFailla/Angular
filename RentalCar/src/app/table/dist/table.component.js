@@ -42,10 +42,6 @@ var TableComponent = /** @class */ (function () {
             this.orderType = 'desc';
         }
     };
-    TableComponent.prototype.filtro = function () {
-        var _this = this;
-        this.data = this.data.filter(function (p) { return p[_this.selectedFilter].toString().includes(_this.searched); });
-    };
     __decorate([
         core_1.Input()
     ], TableComponent.prototype, "tableConfig");
