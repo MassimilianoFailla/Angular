@@ -13,5 +13,5 @@ export class MyTableConfig{
     search: MySearch;
     pagination: MyPagination;
     actions: MyTableActionEnum[];
-    
+
 }

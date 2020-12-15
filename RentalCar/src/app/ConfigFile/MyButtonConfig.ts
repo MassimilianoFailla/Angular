@@ -1,4 +1,3 @@
-import { ComponentFixture } from '@angular/core/testing';
 export class MyButtonConfig{
 
     text: string;

@@ -14,6 +14,7 @@ var PaginationPipe = /** @class */ (function () {
     PaginationPipe.prototype.transform = function (dati, itemPerPage, itemPerPageOption) {
         var data = [];
         var index = 0;
+        // tslint:disable-next-line:variable-name
         var per_page = itemPerPage;
         console.log(dati);
         for (var _i = 0, dati_1 = dati; _i < dati_1.length; _i++) {

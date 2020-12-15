@@ -11,6 +11,7 @@ var core_1 = require("@angular/core");
 var _ = require("lodash");
 var TableComponent = /** @class */ (function () {
     function TableComponent() {
+        this.operation = new core_1.EventEmitter();
     }
     TableComponent.prototype.ngOnInit = function () {
         // configurazione dell'ordinamento
@@ -27,9 +28,10 @@ var TableComponent = /** @class */ (function () {
         }
         // paginazione
         this.perPage = this.tableConfig.pagination.itemPerPage;
-        this.selectedPage = 1;
+        this.selectedPage = 0;
     };
     // ordinamento per le varie colonne
+    // tslint:disable-next-line:typedef
     TableComponent.prototype.sort = function (key) {
         if (this.orderType === 'desc') {
             this.data = _.orderBy(this.data, [key], ['asc']);
@@ -41,6 +43,13 @@ var TableComponent = /** @class */ (function () {
             this.icon = 'arrow_drop_up';
             this.orderType = 'desc';
         }
+    };
+    // filtro(){
+    //   this.data = this.data.filter((p: any) => p[this.selectedFilter].toString().includes(this.searched));
+    // }
+    // tslint:disable-next-line:typedef
+    TableComponent.prototype.op = function (operation) {
+        this.operation.emit(operation);
     };
     __decorate([
         core_1.Input()
@@ -60,6 +69,9 @@ var TableComponent = /** @class */ (function () {
     __decorate([
         core_1.Input()
     ], TableComponent.prototype, "paginationConfig");
+    __decorate([
+        core_1.Output()
+    ], TableComponent.prototype, "operation");
     TableComponent = __decorate([
         core_1.Component({
             selector: 'app-table',

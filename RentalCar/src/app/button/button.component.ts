@@ -1,4 +1,4 @@
-import { MyButtonConfig } from './../MyButtonConfig';
+import { MyButtonConfig } from '../ConfigFile/MyButtonConfig';
 import { Component, Input, OnInit } from '@angular/core';
 
 

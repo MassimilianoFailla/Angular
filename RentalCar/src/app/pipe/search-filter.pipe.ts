@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { MyData } from './../MyData';
+import { MyData } from '../ConfigFile/MyData';
 
 @Pipe({
   name: 'searchFilter'

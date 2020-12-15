@@ -1,11 +1,10 @@
-import { MyPagination } from './../MyPagination';
-import { MyOrder } from './../MyOrder';
-import { MyTableConfig } from './../MyTableConfig';
-import { Component, OnInit, Input } from '@angular/core';
-import { MyData } from '../MyData';
+import { MySearch } from './../ConfigFile/MySearch';
+import { MyPagination } from './../ConfigFile/MyPagination';
+import { MyOrder } from '../ConfigFile/MyOrder';
+import { MyTableConfig } from '../ConfigFile/MyTableConfig';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MyData } from '../ConfigFile/MyData';
 import * as _ from 'lodash';
-import { MySearch } from '../MySearch';
-
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -22,17 +21,20 @@ export class TableComponent implements OnInit {
   @Input() searchConfig: MySearch;      // ricerca custom
   @Input() paginationConfig: MyPagination;  // per la paginazione della tabella
 
+
+  @Output() operation = new EventEmitter<number>();
+
   // per l'ordinamento
   reverse: boolean;
   orderType: string;
 
   // per la paginazione
-  selectedPage: number ;
+  selectedPage: number;
   perPage: number;
   paginPipe: number;
 
   // per il filraggio
-  selectedFilter:string;
+  selectedFilter: string;
   searched: string;
   searchValue: string;
 
@@ -52,11 +54,12 @@ export class TableComponent implements OnInit {
 
     // paginazione
     this.perPage = this.tableConfig.pagination.itemPerPage;
-    this.selectedPage = 1;
+    this.selectedPage = 0;
   }
 
   // ordinamento per le varie colonne
-   sort(key: string) {
+  // tslint:disable-next-line:typedef
+  sort(key: string) {
     if (this.orderType === 'desc') {
       this.data = _.orderBy(this.data, [key], ['asc']);
       this.orderType = 'asc';
@@ -72,6 +75,10 @@ export class TableComponent implements OnInit {
   //   this.data = this.data.filter((p: any) => p[this.selectedFilter].toString().includes(this.searched));
   // }
 
+  // tslint:disable-next-line:typedef
+  op(operation: number) {
+    this.operation.emit(operation);
+  }
 
 
 }

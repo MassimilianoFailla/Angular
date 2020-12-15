@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppComponent = void 0;
+var MyTableActionEnum_1 = require("./ConfigFile/MyTableActionEnum");
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
@@ -50,9 +51,7 @@ var AppComponent = /** @class */ (function () {
             itemPerPageOptions: [2, 3, 4, 5]
         };
         // config action
-        this.actionConfig = [
-            NEW_ROW, 'Massimiliano', DELETE, 'Failla', EDIT, 1
-        ];
+        this.actionConfig = [MyTableActionEnum_1.MyTableActionEnum.NEW_ROW, MyTableActionEnum_1.MyTableActionEnum.EDIT, MyTableActionEnum_1.MyTableActionEnum.DELETE];
         // configurazione tabella
         this.tableConfig = {
             headers: this.header,

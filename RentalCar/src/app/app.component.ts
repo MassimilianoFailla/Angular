@@ -1,9 +1,9 @@
-import { MyTableActionEnum } from './MyTableActionEnum';
-import { MyPagination } from './MyPagination';
-import { MySearch } from './MySearch';
-import { MyOrder } from './MyOrder';
-import { MyTableConfig } from './MyTableConfig';
-import { MyButtonConfig } from './MyButtonConfig';
+import { MyTableActionEnum } from './ConfigFile/MyTableActionEnum';
+import { MyPagination } from './ConfigFile/MyPagination';
+import { MySearch } from './ConfigFile/MySearch';
+import { MyOrder } from './ConfigFile/MyOrder';
+import { MyTableConfig } from './ConfigFile/MyTableConfig';
+import { MyButtonConfig } from './ConfigFile/MyButtonConfig';
 import { Component } from '@angular/core';
 
 @Component({
@@ -58,9 +58,7 @@ export class AppComponent {
   };
 
   // config action
-actionConfig: MyTableActionEnum = [
-  NEW_ROW: 'Massimiliano', DELETE: 'Failla', EDIT: 1
-];
+  actionConfig: MyTableActionEnum[] = [MyTableActionEnum.NEW_ROW, MyTableActionEnum.EDIT, MyTableActionEnum.DELETE];
 
   // configurazione tabella
   tableConfig: MyTableConfig = {

@@ -1,4 +1,3 @@
-import { MySearch } from './MySearch';
 export class MyData{
     [x: string]: any;
 
@@ -11,5 +10,5 @@ export class MyData{
         this.cognome = cognome;
         this.id = id;
     }
-    
+
 }

@@ -98,6 +98,7 @@
     </select>
     <br><br>
     Pagina: <input [(ngModel)]="selectedPage" type="number" value="{{selectedPage}}">
+    <button *ngFor="let act of tableConfig.actions" (click) = "op(act)">{{act}}</button>
   </div>
   <!-- paginazione -->
 
